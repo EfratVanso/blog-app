@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native'
 export default function IndexScreen() {
     return (
         <View>
-            <Text>jhgjh</Text>
+            <Text>hghgf</Text>
         </View>
     )
 }
