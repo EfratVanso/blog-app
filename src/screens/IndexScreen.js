@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import BlogContext from '../context/BlogContext'
 
 export default function IndexScreen() {
+    const value = useContext(BlogContext);
     return (
         <View>
-            <Text>hghgf</Text>
+            <Text>{value}</Text>
         </View>
     )
 }
