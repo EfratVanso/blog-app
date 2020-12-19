@@ -1,6 +1,5 @@
-import React, { useReducer } from "react";
+import CreateDataContext from "./CreateDataContext";
 
-const BlogContext = React.createContext();
 
 const blogReducer = (state, action) => {
     switch(action.type){
@@ -10,21 +9,13 @@ const blogReducer = (state, action) => {
             return state;
     }
 };
-//provider wrap the whole app
-export const BlogProvider = ({ children }) => {
-  const [blogPosts, dispatch] = useReducer(blogReducer, []);
-  // value is the information to share:
-  
-  const addBlogPost = () => {
-      dispatch({type: 'add_blogpost'});
-  };
-  
-  return (
-    <BlogContext.Provider value={{ data: blogPosts, addBlogPost }}>
-      {/* this will be other component(actually App.js) */}
-      {children}
-    </BlogContext.Provider>
-  );
+const addBlogPost = (dispatch) => {
+    return () =>{
+        dispatch({type: 'add_blogpost'});
+    }
 };
-
-export default BlogContext;
+export const {Context, Provider} = CreateDataContext(
+    blogReducer,
+    {addBlogPost},
+    []
+);
