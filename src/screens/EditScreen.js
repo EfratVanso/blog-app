@@ -13,7 +13,7 @@ export default function EditScreen({ navigation }) {
   return <BlogPostForm
   initialValues = {{title: blogPost.title, content: blogPost.content}}
   onSubmit={(title, content) => {
-    editBlogPost(id, title, content);
+    editBlogPost(id, title, content, ()=> navigation.pop());
   }}/>;
 }
 BlogPostForm.defaultProps = { //for case that CreateScreen uses this component and it doesn't send initialValues
