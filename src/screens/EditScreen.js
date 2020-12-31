@@ -9,7 +9,16 @@ export default function EditScreen({ navigation }) {
   const blogPost = state.find(
     (blogPost) => blogPost.id === navigation.getParam("id")
   );
-  return <BlogPostForm/>;
+  return <BlogPostForm
+  initialValues = {{title: blogPost.title, content: blogPost.content}}
+  onSubmit={(title, content) => {
+    addBlogPost(title, content, () => navigation.navigate("Index"));
+  }}/>;
 }
-
+BlogPostForm.defaultProps = { //for case that CreateScreen uses this component and it doesn't send initialValues
+    initialValues:{
+        title:'',
+        content:''
+    }
+}
 const styles = StyleSheet.create({});

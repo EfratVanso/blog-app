@@ -1,9 +1,9 @@
 import React ,{useState} from 'react'
 import { View, Text, StyleSheet, TextInput, Button} from 'react-native'
 
-export default function BlogPostForm({ onSubmit}) {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+export default function BlogPostForm({ onSubmit, initialValues}) {
+    const [title, setTitle] = useState(initialValues.title);
+    const [content, setContent] = useState(initialValues.content);
 
     return (
         <View>
