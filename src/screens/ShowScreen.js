@@ -17,7 +17,7 @@ export default function ShowScreen({ navigation }) {
 }
 ShowScreen.navigationOptions = ({navigation}) => {
   return {
-    headerRight: () => (
+    headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.navigate("Edit", {id: navigation.getParam('id')})}>
         <EvilIcons name="pencil" size={35} />
       </TouchableOpacity>
