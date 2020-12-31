@@ -12,8 +12,14 @@ const blogReducer = (state, action) => {
         },
       ];
     case "delete_blogpost":
-        return state.filter((blogPost)=> blogPost.id !== action.payload)
-    default:
+        return state.filter((blogPost)=> blogPost.id !== action.payload);
+    case "edit_blogpost": 
+    console.log(action.payload)
+      return state.map(blogPost=>{
+        return blogPost.id ===action.payload.id? action.payload :blogPost;// change the appropriate item
+      });
+    default:   // console.log(action.payload)
+
       return state;
   }
 };
