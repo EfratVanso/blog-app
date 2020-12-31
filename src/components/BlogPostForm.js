@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
 import { View, Text, StyleSheet, TextInput, Button} from 'react-native'
 
-export default function BlogPostForm() {
+export default function BlogPostForm({ onSubmit}) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -21,7 +21,7 @@ export default function BlogPostForm() {
           />
           <Button
             title="Save Blog Post"
-            onPress={() => { }}
+            onPress={() => onSubmit(title,content)}
           ></Button>
         </View>
       );
