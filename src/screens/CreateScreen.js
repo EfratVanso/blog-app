@@ -1,15 +1,42 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { Context } from '../context/BlogContext';
+import React, { useContext, useState } from "react";
+import { View, Text, StyleSheet, TextInput, Button } from "react-native";
+import { Context } from "../context/BlogContext";
 
-export default function CreateScreen() {
-    return (
-        <View>
-            <Text>CreateScreen</Text>
-        </View>
-    )
+export default function CreateScreen({ navigation }) {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  return (
+    <View>
+      <Text style={styles.label}>Enter Title:</Text>
+      <TextInput
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+        style={styles.input}
+      />
+      <Text style={styles.label}>Enter Content:</Text>
+      <TextInput
+        style={styles.input}
+        value={content}
+        onChangeText={(text) => setContent(text)}
+      />
+      <Button title="Add Blog Post"></Button>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    
-})
+  input: {
+    fontSize: 18,
+    borderWidth: 1,
+    borderColor: "black",
+    marginBottom: 15,
+    marginLeft: 10,
+    padding: 5,
+    margin: 5,
+  },
+
+  label: {
+    fontSize: 20,
+    marginBottom: 5,
+  },
+});
