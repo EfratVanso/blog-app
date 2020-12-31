@@ -20,7 +20,7 @@ export default function IndexScreen({ navigation }) {
         keyExtractor={(post) => post.title}
         renderItem={({ item }) => {
           return (
-              <TouchableOpacity onPress={() => navigation.navigate('Show')}>
+              <TouchableOpacity onPress={() => navigation.navigate('Show', {id: item.id})}>
             <View style={styles.row}>
               <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                 <Feather
