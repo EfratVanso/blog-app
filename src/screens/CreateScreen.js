@@ -5,7 +5,7 @@ import { Context } from '../context/BlogContext';
 export default function CreateScreen() {
     return (
         <View>
-            <Text></Text>
+            <Text>CreateScreen</Text>
         </View>
     )
 }

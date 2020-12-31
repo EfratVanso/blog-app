@@ -39,6 +39,15 @@ export default function IndexScreen({ navigation }) {
     </View>
   );
 }
+IndexScreen.navigationOptions = ({ navigation }) =>{
+    return {
+    headerLeft: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    ),
+  }
+}
 
 const styles = StyleSheet.create({
   row: {
