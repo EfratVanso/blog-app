@@ -40,7 +40,7 @@ const addBlogPost = (dispatch) => {
   return async (title, content, callback) => {
     await jsonServer.post('/blogposts', {title, content});
     // dispatch({ type: "add_blogpost" , payload:{title, content}});
-    // callback();
+     callback();
   };
 };
 const deleteBlogPost = (dispatch) => {

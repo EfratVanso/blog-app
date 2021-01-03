@@ -12,9 +12,18 @@ import { Feather } from "@expo/vector-icons";
 export default function IndexScreen({ navigation }) {
   const { state, getBlogPosts, deleteBlogPost } = useContext(Context);
 
-  useEffect(() => { // on the first loading 
-    getBlogPosts();
+  useEffect(() => { 
+    getBlogPosts();// on the first loading 
+
+    const listener = navigation.addListener('didFocus', ()=> {
+      getBlogPosts();// after every update(or after return to this screen)
+    })
+
+    return () =>{ //cleanup after this screen completely closed
+      listener.remove();
+    };
   }, []);
+
 
   return (
     <View>
